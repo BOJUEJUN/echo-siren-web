@@ -183,6 +183,8 @@
   .hero {
     position: absolute; z-index: 4; left: 30px; top: 138px; width: 388px; height: 690px;
     object-fit: contain;
+    background-image: url("assets/sera_sticker.png");
+    background-size: contain; background-repeat: no-repeat; background-position: center bottom;
     filter: drop-shadow(0 8px 0 rgba(15,45,55,.22)) drop-shadow(0 0 6px rgba(90,230,255,.35));
     pointer-events: none;
   }
@@ -350,8 +352,7 @@
   @keyframes spin { to { transform: rotate(360deg); } }
   .live .note-ico { position: relative; width: 42px; height: 42px; margin-bottom: 2px; }
   .live .note-ico svg { width: 42px; height: 42px; }
-  .live .cn { font-size: 20px; font-weight: 900; color: #fff; line-height: 1.05; letter-spacing: 3px; text-shadow: 0 2px 0 rgba(140,15,60,.35); }
-  .live .en { font-size: 10px; font-weight: 800; color: rgba(255,255,255,.92); letter-spacing: 2px; margin-bottom: 12px; }
+  .live .cn { font-size: 20px; font-weight: 900; color: #fff; line-height: 1.05; letter-spacing: 3px; text-shadow: 0 2px 0 rgba(140,15,60,.35); margin-bottom: 12px; }
 
   /* 3/4 档案/图鉴：彩色六边形入口 */
   .hex-nav { width: 66px; height: 96px; }
@@ -367,8 +368,7 @@
   }
   .hex-nav .hex-inner .glint { top: 2%; left: 12%; width: 46%; height: 18%; }
   .hex-nav .hex-inner svg { width: 24px; height: 24px; margin-top: 3px; }
-  .hex-nav .cn { margin-top: 83px; font-size: 13px; font-weight: 800; color: #fff; letter-spacing: 2px; text-shadow: 0 1px 0 rgba(15,45,55,.5); }
-  .hex-nav .en { font-size: 8px; font-weight: 700; color: rgba(255,255,255,.78); letter-spacing: 1px; }
+  .hex-nav .cn { margin-top: 78px; font-size: 14px; font-weight: 800; color: #fff; letter-spacing: 2px; text-shadow: 0 1px 0 rgba(15,45,55,.5); }
   .hex-nav.roster .hex-inner { background: linear-gradient(180deg, #3FC6F0, #1E9BD8); }
   .hex-nav.codex  .hex-inner { background: linear-gradient(180deg, #FFC34D, #F09A20); }
 
@@ -402,8 +402,7 @@
   }
   .summon .star { position: absolute; right: 14px; top: 10px; width: 16px; height: 16px; }
   .summon .star svg { width: 100%; height: 100%; filter: drop-shadow(0 0 5px #fff); }
-  .summon .cn { font-size: 16px; font-weight: 900; color: #fff; line-height: 1.05; letter-spacing: 3px; }
-  .summon .en { font-size: 8px; font-weight: 700; color: rgba(255,255,255,.82); letter-spacing: 1px; margin-bottom: 16px; }
+  .summon .cn { font-size: 16px; font-weight: 900; color: #fff; line-height: 1.05; letter-spacing: 3px; margin-bottom: 16px; }
 
   .version {
     position: absolute; z-index: 8; left: 16px; bottom: 8px;
@@ -460,7 +459,7 @@
           <div class="speedline" style="left:150px; top:10px; height:60px;"></div>
           <div class="speedline" style="left:300px; top:120px; height:130px; opacity:.6;"></div>
 
-          <img class="hero" src="assets/sera_sticker.png" alt="瑟拉" />
+          <img class="hero" src="assets/hero_anim.webp" alt="瑟拉" />
           <div class="spark big">
             <svg viewBox="0 0 40 40">
               <path d="M20 0 L22.5 14.5 L20 13 L17.5 14.5 Z" fill="#EFFFFB"/>
@@ -562,7 +561,7 @@
               <span class="glint" style="top:14px;"></span>
               <div class="win"><i></i><i></i><i></i><i></i><i></i><i></i></div>
               <div class="slot"></div>
-              <div class="label"><b>商城</b><span>SHOP</span></div>
+              <div class="label"><b>商城</b></div>
             </div>
 
             <div class="nav live">
@@ -587,7 +586,6 @@
                 </svg>
               </div>
               <div class="cn">现场</div>
-              <div class="en">LIVE</div>
             </div>
 
             <div class="nav hex-nav roster">
@@ -601,7 +599,6 @@
                 </svg>
               </div>
               <div class="cn">档案</div>
-              <div class="en">ROSTER</div>
             </div>
 
             <div class="nav hex-nav codex">
@@ -615,7 +612,6 @@
                 </svg>
               </div>
               <div class="cn">图鉴</div>
-              <div class="en">CODEX</div>
             </div>
 
             <div class="nav summon">
@@ -627,11 +623,9 @@
                   </svg>
                 </span>
                 <div class="cn">招募</div>
-                <div class="en">GACHA</div>
               </div>
             </div>
           </div>
-          <div class="version">VER 0.9.1 · ECHO-SIREN 幻域魅声</div>
         </div>
       </div>
     </div>
