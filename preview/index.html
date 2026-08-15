@@ -183,9 +183,6 @@
   .hero {
     position: absolute; z-index: 4; left: 30px; top: 138px; width: 388px; height: 690px;
     object-fit: contain;
-    /* 视频未加载完成时先显示静态瑟拉贴纸 */
-    background-image: url("assets/sera_sticker.png");
-    background-size: contain; background-repeat: no-repeat; background-position: center bottom;
     filter: drop-shadow(0 8px 0 rgba(15,45,55,.22)) drop-shadow(0 0 6px rgba(90,230,255,.35));
     pointer-events: none;
   }
@@ -463,8 +460,7 @@
           <div class="speedline" style="left:150px; top:10px; height:60px;"></div>
           <div class="speedline" style="left:300px; top:120px; height:130px; opacity:.6;"></div>
 
-          <video class="hero" src="assets/hero_idle_v2.webm" poster="assets/hero_idle_v2_poster.png"
-                 autoplay muted loop playsinline preload="auto"></video>
+          <img class="hero" src="assets/sera_sticker.png" alt="瑟拉" />
           <div class="spark big">
             <svg viewBox="0 0 40 40">
               <path d="M20 0 L22.5 14.5 L20 13 L17.5 14.5 Z" fill="#EFFFFB"/>
@@ -635,7 +631,7 @@
               </div>
             </div>
           </div>
-          <div class="version">VER 0.9.1 · ECHO-SIREN 幻域魅声 · 动态立绘 v2</div>
+          <div class="version">VER 0.9.1 · ECHO-SIREN 幻域魅声</div>
         </div>
       </div>
     </div>
