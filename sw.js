@@ -2,7 +2,7 @@
 // wasm/js 从 jsDelivr CDN 拉取 gzip 版本，pck 走 CDN 原始文件。
 const CDN_HOSTS = ['https://fastly.jsdelivr.net', 'https://cdn.jsdelivr.net'];
 const CDN_PATH = '/gh/BOJUEJUN/echo-siren-web@gh-pages';
-const CACHE = 'echo-siren-v2';
+const CACHE = 'echo-siren-v3';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -12,12 +12,12 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(self.clients.claim());
 });
 
-async function fromCacheOrFetch(cacheKey, path, makeResponse) {
+async function fromCacheOrFetch(cacheKey, path, makeResponse, hostOrder = CDN_HOSTS) {
   const cache = await caches.open(CACHE);
   const cached = await cache.match(cacheKey);
   if (cached) return cached;
   let lastError;
-  for (const host of CDN_HOSTS) {
+  for (const host of hostOrder) {
     try {
       const fetched = await fetch(host + CDN_PATH + path);
       if (!fetched.ok) throw new Error('CDN fetch failed: ' + fetched.status);
@@ -74,6 +74,7 @@ self.addEventListener('fetch', (event) => {
           'Cache-Control': 'max-age=31536000',
         },
       }),
+      ['https://cdn.jsdelivr.net', 'https://fastly.jsdelivr.net'],
     ));
   }
 });
