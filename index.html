@@ -109,6 +109,28 @@ body {
 			<div id="status-notice"></div>
 		</div>
 
+		<script>
+// 国内加速：首次访问自动安装 Service Worker 后刷新一次，
+// 之后 wasm/js 从 jsDelivr CDN 的 gzip 版本加载，pck 走 CDN。
+(function () {
+	if (!('serviceWorker' in navigator) || navigator.serviceWorker.controller) {
+		return;
+	}
+	navigator.serviceWorker.register('sw.js').then((registration) => {
+		const worker = registration.active || registration.installing || registration.waiting;
+		if (!worker) return;
+		if (worker.state === 'activated') {
+			if (!navigator.serviceWorker.controller) window.location.reload();
+			return;
+		}
+		worker.addEventListener('statechange', () => {
+			if (worker.state === 'activated' && !navigator.serviceWorker.controller) {
+				window.location.reload();
+			}
+		});
+	}).catch(() => {});
+}());
+		</script>
 		<script src="index.js"></script>
 		<script>
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":13536344,"index.wasm":37695054},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
